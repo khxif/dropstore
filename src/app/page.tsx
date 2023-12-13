@@ -24,7 +24,7 @@ export default function HomePage() {
       <Link href={userId ? "/dashboard" : "/sign-in"}>
         <Button
           className="flex items-center space-x-1 font-medium text-lg px-10 py-6 bg-gradient-to-br 
-          hover:brightness-80 from-blue-800 via-indigo-900 to-purple-600 dark:text-white 
+          hover:brightness-75 from-blue-800 via-indigo-900 to-purple-600 dark:text-white 
           transition-all duration-300 ease-in-out rounded-full drop-shadow-lg mt-4"
           size="lg"
         >
