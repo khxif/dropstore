@@ -24,7 +24,7 @@ export default async function DashboardPage() {
   return (
     <main>
       <DragAndDrop />
-      <div className="container mx-auto space-y-5 mt-2 md:mt-4 mb-6">
+      <div className="px-1 sm:px-2 md:container mx-auto space-y-5 mt-2 md:mt-4 mb-6">
         <h1 className="font-bold text-lg">All Files</h1>
         <TableWrapper userId={userId} skeletonFiles={skeletonFiles} />
       </div>
