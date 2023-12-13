@@ -57,6 +57,7 @@ export default function DeleteModal() {
           from our servers.
         </DialogDescription>
         <DialogFooter className="w-full flex">
+          <div className="flex gap-4">
           <Button
             onClick={() => setIsDeleteModalOpen(false)}
             className="w-full"
@@ -72,6 +73,7 @@ export default function DeleteModal() {
           >
             Delete
           </Button>
+          </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>
