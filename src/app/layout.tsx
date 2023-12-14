@@ -21,6 +21,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
         <body className={inter.className}>
           <ThemeProvider
             attribute="class"

@@ -45,7 +45,7 @@ export default function TableWrapper({ skeletonFiles, userId }: Props) {
         className="mb-5 ml-auto justify-end mr-3 md:mr-0"
       >
         {loading ? (
-          <Skeleton className="h-4 w-20 rounded-md bg-slate-400" />
+          <Skeleton className="h-4 w-20 rounded-md" />
         ) : (
           <>Sort by ({sort === "asc" ? "Newest" : "Oldest"})</>
         )}
