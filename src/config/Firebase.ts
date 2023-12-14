@@ -3,7 +3,7 @@ import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAYilR4xOUecNz_3qDqix2J2gc2OFtRoCM",
+    apiKey: process.env.FIREBASE_ENV_KEY,
     authDomain: "dropbox-db60e.firebaseapp.com",
     projectId: "dropbox-db60e",
     storageBucket: "dropbox-db60e.appspot.com",

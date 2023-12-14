@@ -1,9 +1,9 @@
 import DragAndDrop from "@/components/Dashboard/DragAndDrop";
+import TableWrapper from "@/components/Table/TableWrapper";
 import { auth } from "@clerk/nextjs";
 import { collection, getDocs } from "firebase/firestore";
 import { redirect } from "next/navigation";
 import { db } from "../../config/Firebase";
-import TableWrapper from "@/components/Table/TableWrapper";
 
 export default async function DashboardPage() {
   const { userId } = auth();
@@ -25,7 +25,7 @@ export default async function DashboardPage() {
     <main>
       <DragAndDrop />
       <div className="px-1 sm:px-2 md:container mx-auto space-y-5 mt-2 md:mt-4 mb-6">
-        <h1 className="font-bold text-lg">All Files</h1>
+        <h1 className="font-bold text-lg ml-3 md:ml-0">All Files</h1>
         <TableWrapper userId={userId} skeletonFiles={skeletonFiles} />
       </div>
     </main>

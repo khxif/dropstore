@@ -10,6 +10,7 @@ import {
 import DeleteModal from "@/components/Dashboard/Modals/DeleteModal";
 import RenameModal from "@/components/Dashboard/Modals/RenameModal";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
   TableBody,
@@ -30,11 +31,15 @@ import { Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  loading: boolean;
+  skeletonFiles: FileType[];
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  skeletonFiles,
+  loading,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -151,7 +156,20 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">
-                No files found!
+                {!loading && <p>No files found!</p>}
+                {loading && (
+                  <div className="space-y-4 py-2 px-1 md:px-2">
+                    {skeletonFiles.map((file) => (
+                      <div
+                        key={file.id}
+                        className="flex items-center space-x-4"
+                      >
+                        <Skeleton className="w-10 md:w-12 h-10 rounded-lg" />
+                        <Skeleton className="w-full h-10 rounded-lg" />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </TableCell>
             </TableRow>
           )}

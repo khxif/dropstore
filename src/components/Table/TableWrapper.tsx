@@ -5,6 +5,7 @@ import { collection, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { Button } from "../ui/button";
+import { Skeleton } from "../ui/skeleton";
 import { columns } from "./Columns";
 import { DataTable } from "./Datat/Table";
 
@@ -41,11 +42,20 @@ export default function TableWrapper({ skeletonFiles, userId }: Props) {
     <div className="w-full flex flex-col">
       <Button
         onClick={() => setSort(sort === "asc" ? "desc" : "asc")}
-        className="mb-5 ml-auto justify-end"
+        className="mb-5 ml-auto justify-end mr-3 md:mr-0"
       >
-        Sort by ({sort === "asc" ? "Newest" : "Oldest"})
+        {loading ? (
+          <Skeleton className="h-4 w-20 rounded-md bg-slate-400" />
+        ) : (
+          <>Sort by ({sort === "asc" ? "Newest" : "Oldest"})</>
+        )}
       </Button>
-      <DataTable columns={columns} data={initialFiles} />
+      <DataTable
+        loading={loading}
+        skeletonFiles={skeletonFiles}
+        columns={columns}
+        data={initialFiles}
+      />
     </div>
   );
 }
